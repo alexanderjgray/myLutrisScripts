@@ -1,8 +1,8 @@
 files:
 - game: N/A:Select the Windows setup file downloaded from GOG
 - dxWrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.0.6542.21/dxwrapper.zip
-- tropicoEditor: https://github.com/alexanderjgray/myLutrisScripts/blob/main/tropico/tedit103.exe
-- hotelFix: https://github.com/alexanderjgray/myLutrisScripts/blob/main/tropico/FixHotel.zip
+- tropicoEditor: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/tedit103.exe
+- hotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/FixHotel.zip
 game:
   exe: drive_c/GOG Games/Tropico/tropico.EXE
   prefix: $GAMEDIR
@@ -40,5 +40,6 @@ installer:
     key: DdrawFixByteAlignment
     section: ddraw
     value: 1
-overrides:
-  ddraw.dll: n
+wine:
+  overrides:
+    ddraw.dll: n
