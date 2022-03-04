@@ -1,0 +1,9 @@
+Update lutris install script to use new tools
+
+Make local version of install script
+
+Clean up tool scripts
+
+Make another basic script for patching maps but with editor prompts for the description and name
+
+Other tools to help with event editing?
