@@ -6,11 +6,8 @@ Dxwrapper should be installed and working without any intervension.
 
 Tropico edit and the hotel fix can be found in the extras folder present in the root of the wine prefix.
 
-The .evt files in the FixHotel.zip are not by themselves useful. You must using Tropico Edit manually patch whichever scenario you want to play or convert a fresh
-random map game into a scenario. Thankfully the process of both is simple and Tropico Edit comes with decent documention, you can find it as 
+tropico-auto-scenario-fix.sh is a script for fixing all the premade scenarios post intall.
 
-For an official scenario:
-    Find whichever scenario in the maps folder where you installed Tropico.
-    
-    
+tropico-auto-hotel-fix.sh is a script that watches Tropico's "game" folder for new saves with the prefix "s-" (s for scenario) and automatically applys the hotel fix. You'll find the patched scenario in the premade scenario list.
 
+Manual instructions here? WIP
