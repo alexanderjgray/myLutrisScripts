@@ -3,34 +3,34 @@
 # Watches tropico's save folder for "s-" prefixed (s for scenario) saves and converts them into a FixHotel patched scenario
 # If installed with Lutris Install script you should only have to replace <your_user> with your username
 
-# the folder to watch
-DIR="/home/<your_user>/Games/gog/tropico/drive_c/GOG Games/Tropico/games/"
+# Tropico's root folder
+DIR="/$HOME/Games/gog/tropico/drive_c/GOG Games/Tropico/"
 
-# tropico's scenario folder
-target_dir="/home/<your_user>/Games/gog/tropico/drive_c/GOG Games/Tropico/maps/"
+# Tropico's games folder (saves)
+GAMES="$DIR/games/"
 
-# tropico's root folder
-working_dir="/home/<your_user>/Games/gog/tropico/drive_c/GOG Games/Tropico/"
+# Tropico's maps folder (scenarios)
+MAPS="$DIR/maps/"
 
 # where is the FixHotel folder and other extras
-extras_dir="/home/<your_user>/Games/gog/tropico/extras/"
+FIXHOTEL="/$HOME/Games/gog/tropico/extras/FixHotel"
 
-inotifywait -m -r -e moved_to -e create "$DIR" --format "%f" | while read f
+inotifywait -m -e moved_to -e create "$GAMES" --format "%f" | while read f
 do
     if [[ $f = s-*.GM2 ]]; then
 	cd "$DIR";
-	mv $f "$working_dir";
-	cd "$working_dir";
-	# new file name
+	echo "Moving $f to root dir...";
+	mv "$GAMES/$f" "$DIR";
+	echo "Getting new file name and renaming...";
 	nf=`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
-	mv $f `echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
-	# uncompile the map
+	mv "$DIR/$f" "$DIR/"`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
+	echo "Extracting $nf ...";
 	wineconsole eventget.exe $nf;
-	# map folders name
+	echo "Getting new map folder name and applying patch...";
 	mdir=`echo $nf | sed 's/.mp2//'`;
-	cp -r "$extras_dir/FixHotel" "$working_dir/$mdir";
-	# recompile the map
+	cp -r "$FIXHOTEL" "$DIR/$mdir";
+	echo "Recompiling $nf ...";
 	wineconsole eventadd.exe $nf;
-	mv $nf "$target_dir";
+	mv $nf "$MAPS";
     fi
 done
