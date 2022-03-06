@@ -2,36 +2,34 @@
 
 # Automatically goes through each scenario, extracts them, applys the hotel fix and recompiles.
 
-# For loop through map dir, backup originals, extract, patch, recompile.
-
-DIR="/home/<your_user>/Games/gog/tropico/drive_c/GOG Games/Tropico/";
+DIR="$HOME/Games/gog/tropico/drive_c/GOG Games/Tropico/";
 echo "$DIR";
 
-map_dir="$DIR/maps/";
-echo "$map_dir";
+MAPS="$DIR/maps/";
+echo "$MAPS";
 
-extras_dir="/home/<your_user>/Games/gog/tropico/extras/";
-echo "$extras_dir";
+FIXHOTEL="$HOME/Games/gog/tropico/extras/FixHotel";
+echo "$FIXHOTEL";
 
-working_dir="/home//<your_user>Games/gog/tropico/drive_c/GOG Games/Tropico/working/";
+WORKING="$DIR/working/";
 
 cd "$DIR";
-mv "$map_dir" "$DIR/maps.bak/";
-mkdir "$map_dir";
-mkdir "$working_dir";
-cp "$DIR/maps.bak/"* "$working_dir";
+mv "$MAPS" "$DIR/maps.bak/";
+mkdir "$MAPS";
+mkdir "$WORKING";
+cp "$DIR/maps.bak/"* "$WORKING";
 
-for f in "$working_dir"*
+for f in "$WORKING"*
 do
     echo "Processing $f map...";
     echo "Extracting $f...";
     wineconsole eventget.exe "$f";
     extractedScenario=`echo $f | sed 's/.mp2//i'`;
     echo "$extractedScenario";
-    cp -r "$extras_dir/FixHotel" "$extractedScenario";
+    cp -r "$FIXHOTEL" "$extractedScenario";
     echo "Re-compiling $f..."
     wineconsole eventadd.exe "$f";
     echo "Moving $f to map dir..."
-    mv "$f" "$map_dir";
+    mv "$f" "$MAPS";
 done
 echo "Finished."; 
