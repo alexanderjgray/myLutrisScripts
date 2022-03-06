@@ -1,0 +1,52 @@
+name: "Tropico"
+game_slug: tropico
+version: "GOG w/ dxwrapper, editing tools"
+slug: tropico-installer
+runner: wine
+script:
+  files:
+  - game: N/A:Select the Windows setup file downloaded from GOG
+  - dxWrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.0.6542.21/dxwrapper.zip
+  - tropicoEditor: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/tedit103.exe
+  - hotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/FixHotel.zip
+  game:
+    gogid: 1207663953
+    exe: $GAMEDIR/drive_c/GOG Games/Tropico/tropico.EXE
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      args: /silent /nogui /suppressmsgboxes
+      executable: game
+      name: wineexec
+      prefix: $GAMEDIR
+  - extract:
+      dst: $GAMEDIR/extras/dxwrapper
+      file: $dxWrapper
+  - copy:
+      dst: $GAMEDIR/drive_c/GOG Games/Tropico
+      src: $GAMEDIR/extras/dxwrapper/dxwrapper.dll
+  - copy:
+      dst: $GAMEDIR/drive_c/GOG Games/Tropico
+      src: $GAMEDIR/extras/dxwrapper/dxwrapper.ini
+  - copy:
+      dst: $GAMEDIR/drive_c/GOG Games/Tropico
+      src: $GAMEDIR/extras/dxwrapper/Stub/ddraw.dll
+  - copy:
+      dst: $GAMEDIR/extras
+      src: $tropicoEditor
+  - copy:
+      dst: $GAMEDIR/extras
+      src: $hotelFix
+  - write_config:
+      file: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper.ini
+      key: Dd7to9
+      section: Compatibility
+      value: 1
+  - write_config:
+      file: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper.ini
+      key: DdrawFixByteAlignment
+      section: ddraw
+      value: 1
+  wine:
+    overrides:
+      ddraw.dll: n
