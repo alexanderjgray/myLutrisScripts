@@ -1,10 +1,11 @@
 #!/bin/sh
 
 # Watches tropico's save folder for "s-" prefixed (s for scenario) saves and converts them into a FixHotel patched scenario
-# If installed with Lutris Install script you should only have to replace <your_user> with your username
+
+# Update paths to your specific setup if required. If installed using the Lutris script no alterations should be nessesary.
 
 # Tropico's root folder
-DIR="/$HOME/Games/gog/tropico/drive_c/GOG Games/Tropico/"
+DIR="$HOME/Games/gog/tropico/drive_c/GOG Games/Tropico/"
 
 # Tropico's games folder (saves)
 GAMES="$DIR/games/"
@@ -13,7 +14,7 @@ GAMES="$DIR/games/"
 MAPS="$DIR/maps/"
 
 # where is the FixHotel folder and other extras
-FIXHOTEL="/$HOME/Games/gog/tropico/extras/FixHotel"
+FIXHOTEL="$HOME/Games/gog/tropico/extras/FixHotel"
 
 inotifywait -m -e moved_to -e create "$GAMES" --format "%f" | while read f
 do
