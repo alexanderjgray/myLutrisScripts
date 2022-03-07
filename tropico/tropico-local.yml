@@ -9,6 +9,8 @@ script:
   - dxWrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.0.6542.21/dxwrapper.zip
   - tropicoEditor: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/tedit103.exe
   - hotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/FixHotel.zip
+  - autoHotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico-tools/tropico-auto-hotel-fix.sh
+  - autoScenarioFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico-tools/tropico-auto-scenario-fix.sh
   game:
     gogid: 1207663953
     exe: $GAMEDIR/drive_c/GOG Games/Tropico/tropico.EXE
@@ -37,6 +39,12 @@ script:
   - copy:
       dst: $GAMEDIR/extras
       src: $hotelFix
+  - copy:
+      dst: $GAMEDIR/extras
+      src: $autoHotelFix
+  - copy:
+      dst: $GAMEDIR/extras
+      src: $autoScenarioFix
   - write_config:
       file: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper.ini
       key: Dd7to9
