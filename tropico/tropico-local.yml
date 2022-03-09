@@ -55,6 +55,18 @@ script:
       key: DdrawFixByteAlignment
       section: ddraw
       value: 1
+  - task:
+      description: Installing the Tropico editor...
+      name: wineexec
+      executable: $GAMEDIR/extras/tedit103.exe
+      prefix: $GAMEDIR
+  - extract:
+      dst: $GAMEDIR/extras/FixHotel
+      src: $GAMEDIR/extras/FixHotel.zip
+  - chmodx: $GAMEDIR/extras/tropico-auto-hotel-fix.sh
+  - chmodx: $GAMEDIR/extras/tropico-auto-scenario-fix.sh
+  - execute:
+      file: $GAMEDIR/extras/tropico-auto-scenario-fix.sh
   wine:
     overrides:
       ddraw.dll: n
