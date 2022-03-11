@@ -7,10 +7,10 @@ script:
   files:
   - game: N/A:Select the Windows setup file downloaded from GOG
   - dxWrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.0.6542.21/dxwrapper.zip
-  - tropicoEditor: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/tedit103.exe
-  - hotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico/FixHotel.zip
-  - autoHotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico-tools/tropico-auto-hotel-fix.sh
-  - autoScenarioFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.1-tropico-tools/tropico-auto-scenario-fix.sh
+  - tropicoEditor: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.4-tropico/tedit.tar.gz
+  - hotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.4-tropico/FixHotel.tar.gz
+  - autoHotelFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.4-tropico/tropico-auto-hotel-fix.sh
+  - autoScenarioFix: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.4-tropico/tropico-auto-scenario-fix.sh
   game:
     gogid: 1207663953
     exe: $GAMEDIR/drive_c/GOG Games/Tropico/tropico.EXE
@@ -55,14 +55,12 @@ script:
       key: DdrawFixByteAlignment
       section: ddraw
       value: 1
-  - task:
-      description: Installing the Tropico editor...
-      name: wineexec
-      executable: $GAMEDIR/extras/tedit103.exe
-      prefix: $GAMEDIR
+  - extract:
+      dst: $GAMEDIR/drive_c/GOG Games/Tropico
+      src: $GAMEDIR/extras/tedit.tar.gz
   - extract:
       dst: $GAMEDIR/extras/FixHotel
-      src: $GAMEDIR/extras/FixHotel.zip
+      src: $GAMEDIR/extras/FixHotel.tar.gz
   - chmodx: $GAMEDIR/extras/tropico-auto-hotel-fix.sh
   - chmodx: $GAMEDIR/extras/tropico-auto-scenario-fix.sh
   - execute:
