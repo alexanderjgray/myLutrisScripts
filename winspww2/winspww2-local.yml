@@ -1,0 +1,33 @@
+name: "WinSPWW2"
+game_slug: winspww2
+version: "CD Version"
+slug: winspww2-installer
+runner: wine
+
+script:
+  files:
+  - installer: N/A:Please select installer
+  - patchV5: N/A:Please select WinSPWW2 v5.0_Consolidation_patch.exe
+  - patchV9b: N/A:Please select winSPWW2 V9b Consolidation Upgrade (2016).exe
+  - patchV14: N/A:Please select WinSPWW2 Ver9-Ver14 Consolidation_Upgrade(2021).exe
+  game:
+    exe: $GAMEDIR/drive_c/Shrapnel Games/The Camo Workshop/WinSPWW2/
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      executable: installer
+      name: wineexec
+      prefix: $GAMEDIR  
+  - task:
+      executable: patchV5
+      name: wineexec
+      prefix: $GAMEDIR
+  - task:
+      executable: patchV9b
+      name: wineexec
+      prefix: $GAMEDIR
+  - task:
+      executable: patchV14
+      name: wineexec
+      prefix: $GAMEDIR
+      
