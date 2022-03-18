@@ -10,6 +10,7 @@ script:
   - patchV5: N/A:Please select WinSPWW2 v5.0_Consolidation_patch.exe
   - patchV9b: N/A:Please select winSPWW2 V9b Consolidation Upgrade (2016).exe
   - patchV14: N/A:Please select WinSPWW2 Ver9-Ver14 Consolidation_Upgrade(2021).exe
+  - dxWrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.0.6542.21/dxwrapper.zip
   game:
     exe: $GAMEDIR/drive_c/Shrapnel Games/The Camo Workshop/WinSPWW2/
     prefix: $GAMEDIR
@@ -30,4 +31,26 @@ script:
       executable: patchV14
       name: wineexec
       prefix: $GAMEDIR
-      
+  - extract:
+      dst: $GAMEDIR/extras/dxwrapper
+      file: $dxWrapper
+  - copy:
+      dst: $GAMEDIR/drive_c/Shrapnel Games/The Camo Workshop/WinSPWW2/
+      src: $GAMEDIR/extras/dxwrapper/dxwrapper.dll
+  - copy:
+      dst: $GAMEDIR/drive_c/Shrapnel Games/The Camo Workshop/WinSPWW2/
+      src: $GAMEDIR/extras/dxwrapper/dxwrapper.ini
+  - copy:
+      dst: $GAMEDIR/drive_c/Shrapnel Games/The Camo Workshop/WinSPWW2/
+      src: $GAMEDIR/extras/dxwrapper/Stub/ddraw.dll
+  - copy:
+      dst: $GAMEDIR/drive_c/Shrapnel Games/The Camo Workshop/WinSPWW2/
+      src: $GAMEDIR/extras/dxwrapper/Stub/d3d9.dll
+  - write_config:
+      file: $GAMEDIR/drive_c/Shrapnel Games/The Camo Workshop/WinSPWW2/dxwrapper.ini
+      key: Dd7to9
+      section: Compatibility
+      value: 1
+  wine:
+    overrides:
+      ddraw.dll: n
