@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Watches tropico's save folder for "s-" prefixed (s for scenario) saves and converts them into a FixHotel patched scenario
 
