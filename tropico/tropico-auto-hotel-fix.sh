@@ -31,8 +31,8 @@ do
 	echo "Extracting $new_file ...";
 	wineconsole eventget.exe $new_file;
 	echo "Getting new map folder name and applying patch...";
-	mdir=`echo $new_file | sed 's/.mp2//'`;
-	cp -r "$FIXHOTEL" "$DIR/$mdir";
+	new_map_folder=`echo $new_file | sed 's/.mp2//'`;
+	cp -r "$FIXHOTEL" "$DIR/$new_map_folder";
 	echo "Recompiling $new_file ...";
 	wineconsole eventadd.exe $new_file;
 	mv $new_file "$MAPS";
