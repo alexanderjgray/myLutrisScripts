@@ -26,15 +26,15 @@ do
 	echo "Moving $f to root dir...";
 	mv "$GAMES/$f" "$DIR";
 	echo "Getting new file name and renaming...";
-	nf=`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
+	new_file=`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
 	mv "$DIR/$f" "$DIR/"`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
-	echo "Extracting $nf ...";
-	wineconsole eventget.exe $nf;
+	echo "Extracting $new_file ...";
+	wineconsole eventget.exe $new_file;
 	echo "Getting new map folder name and applying patch...";
-	mdir=`echo $nf | sed 's/.mp2//'`;
+	mdir=`echo $new_file | sed 's/.mp2//'`;
 	cp -r "$FIXHOTEL" "$DIR/$mdir";
-	echo "Recompiling $nf ...";
-	wineconsole eventadd.exe $nf;
-	mv $nf "$MAPS";
+	echo "Recompiling $new_file ...";
+	wineconsole eventadd.exe $new_file;
+	mv $new_file "$MAPS";
     fi
 done
