@@ -8,13 +8,13 @@
 PREFIX="$HOME/Games/gog/tropico";
 
 # Tropico's root folder
-DIR="$PREFIX/drive_c/GOG Games/Tropico";
+TROPICO="$PREFIX/drive_c/GOG Games/Tropico";
 
 # Tropico's games folder (saves)
-GAMES="$DIR/game/";
+GAMES="$TROPICO/game";
 
 # Tropico's maps folder (scenarios)
-MAPS="$DIR/maps";
+MAPS="$TROPICO/maps";
 
 # where is the FixHotel folder and other extras
 FIXHOTEL="$PREFIX/extras/FixHotel";
@@ -22,17 +22,17 @@ FIXHOTEL="$PREFIX/extras/FixHotel";
 inotifywait -m -e moved_to -e create "$GAMES" --format "%f" | while read f
 do
     if [[ $f = s-*.GM2 ]]; then
-	cd "$DIR";
+	cd "$TROPICO";
 	echo "Moving $f to root dir...";
-	mv "$GAMES/$f" "$DIR";
+	mv "$GAMES/$f" "$TROPICO";
 	echo "Getting new file name and renaming...";
 	new_file=`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
-	mv "$DIR/$f" "$DIR/"`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
+	mv "$TROPICO/$f" "$TROPICO/"`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
 	echo "Extracting $new_file ...";
 	wineconsole eventget.exe $new_file;
 	echo "Getting new map folder name and applying patch...";
 	new_map_folder=`echo $new_file | sed 's/.mp2//'`;
-	cp -r "$FIXHOTEL" "$DIR/$new_map_folder";
+	cp -r "$FIXHOTEL" "$TROPICO/$new_map_folder";
 	echo "Recompiling $new_file ...";
 	wineconsole eventadd.exe $new_file;
 	mv $new_file "$MAPS";
