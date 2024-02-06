@@ -4,17 +4,20 @@
 
 # Update paths to your specific setup if required. If installed using the Lutris script no alterations should be nessesary.
 
+# Tropico's Wine Prefix
+PREFIX="$HOME/Games/gog/tropico";
+
 # Tropico's root folder
-DIR="$HOME/Games/gog/tropico/drive_c/GOG Games/Tropico/"
+DIR="$PREFIX/drive_c/GOG Games/Tropico";
 
 # Tropico's games folder (saves)
-GAMES="$DIR/games/"
+GAMES="$DIR/game/";
 
 # Tropico's maps folder (scenarios)
-MAPS="$DIR/maps/"
+MAPS="$DIR/maps";
 
 # where is the FixHotel folder and other extras
-FIXHOTEL="$HOME/Games/gog/tropico/extras/FixHotel"
+FIXHOTEL="$PREFIX/extras/FixHotel";
 
 inotifywait -m -e moved_to -e create "$GAMES" --format "%f" | while read f
 do
