@@ -2,25 +2,25 @@
 
 # Watches tropico's save folder for "s-" prefixed (s for scenario) saves and converts them into a FixHotel patched scenario
 
-# Update paths to your specific setup if required. If installed using the Lutris script no alterations should be nessesary.
+# Update paths to your specific setup if required. If installed using the Lutris script no alterations should be nessesary, unless you do something non-standard.
 
-# Tropico's Wine Prefix
+# Where is Tropico's Wine Prefix? e.g "/home/user/.wine" "/home/user/Games/tropico"
 PREFIX="$HOME/Games/gog/tropico";
 echo "$PREFIX";
 
-# Tropico's root folder
+# Where is Tropico's install folder (where the tropico.exe is)?
 TROPICO="$PREFIX/drive_c/GOG Games/Tropico";
 echo "$TROPICO";
 
-# Tropico's games folder (saves)
+# Where is Tropico's games folder (saves)?
 GAMES="$TROPICO/game";
 echo "$GAMES";
 
-# Tropico's maps folder (scenarios)
+# Where is Tropico's maps folder (scenarios)?
 MAPS="$TROPICO/maps";
 echo "$MAPS";
 
-# where is the FixHotel folder and other extras
+# Where is the FixHotel folder?
 FIXHOTEL="$PREFIX/extras/FixHotel";
 echo "$FIXHOTEL";
 
