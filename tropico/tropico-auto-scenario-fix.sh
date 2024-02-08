@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Automatically goes through each scenario, extracts them, applys the hotel fix and recompiles.
 
