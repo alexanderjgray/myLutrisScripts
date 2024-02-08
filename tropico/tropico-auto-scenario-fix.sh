@@ -2,18 +2,23 @@
 
 # Automatically goes through each scenario, extracts them, applys the hotel fix and recompiles.
 
+# Where is Tropico's Wine Prefix?
 PREFIX="$HOME/Games/gog/tropico";
 echo "PREFIX";
 
+# Where is Tropico's installed (where the tropico.exe is)?
 TROPICO="$PREFIX/drive_c/GOG Games/Tropico";
 echo "$TROPICO";
 
+# Where are Tropico's maps (scenarios)?
 MAPS="$TROPICO/maps";
 echo "$MAPS";
 
+# Where are the FixHotel files?
 FIXHOTEL="$PREFIX/extras/FixHotel";
 echo "$FIXHOTEL";
 
+# Where the script is going to work on the scenarios
 WORKING="$TROPICO/working";
 echo "$WORKING";
 
