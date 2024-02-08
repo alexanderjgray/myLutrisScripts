@@ -21,9 +21,9 @@ cd "$TROPICO";
 mv "$MAPS" "$TROPICO/maps.bak";
 mkdir "$MAPS";
 mkdir "$WORKING";
-cp -r "$TROPICO/maps.bak/."* "$WORKING";
+cp -r "$TROPICO/maps.bak/"* "$WORKING";
 
-for f in "$WORKING"*
+for f in "$WORKING/"*
 do
     echo "Processing $f map...";
     echo "Extracting $f...";
