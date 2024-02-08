@@ -13,7 +13,7 @@ TROPICO="$PREFIX/drive_c/GOG Games/Tropico";
 echo "$TROPICO";
 
 # Where is Tropico's games folder (saves)?
-GAMES="$TROPICO/game";
+GAMES="$TROPICO/games";
 echo "$GAMES";
 
 # Where is Tropico's maps folder (scenarios)?
