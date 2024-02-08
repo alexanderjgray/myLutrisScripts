@@ -15,13 +15,13 @@ FIXHOTEL="$PREFIX/extras/FixHotel";
 echo "$FIXHOTEL";
 
 WORKING="$TROPICO/working";
-echo "WORKING";
+echo "$WORKING";
 
 cd "$TROPICO";
 mv "$MAPS" "$TROPICO/maps.bak";
 mkdir "$MAPS";
 mkdir "$WORKING";
-cp "$TROPICO/maps.bak"* "$WORKING";
+cp -r "$TROPICO/maps.bak/."* "$WORKING";
 
 for f in "$WORKING"*
 do
