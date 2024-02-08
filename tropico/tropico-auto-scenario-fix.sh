@@ -3,23 +3,24 @@
 # Automatically goes through each scenario, extracts them, applys the hotel fix and recompiles.
 
 PREFIX="$HOME/Games/gog/tropico";
+echo "PREFIX";
 
-DIR="$PREFIX/drive_c/GOG Games/Tropico";
-echo "$DIR";
+TROPICO="$PREFIX/drive_c/GOG Games/Tropico";
+echo "$TROPICO";
 
-MAPS="$DIR/maps";
+MAPS="$TROPICO/maps";
 echo "$MAPS";
 
 FIXHOTEL="$PREFIX/extras/FixHotel";
 echo "$FIXHOTEL";
 
-WORKING="$DIR/working";
+WORKING="$TROPICO/working";
 
-cd "$DIR";
-mv "$MAPS" "$DIR/maps.bak/";
+cd "$TROPICO";
+mv "$MAPS" "$TROPICO/maps.bak/";
 mkdir "$MAPS";
 mkdir "$WORKING";
-cp "$DIR/maps.bak/"* "$WORKING";
+cp "$TROPICO/maps.bak/"* "$WORKING";
 
 for f in "$WORKING"*
 do
