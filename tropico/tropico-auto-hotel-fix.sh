@@ -6,18 +6,23 @@
 
 # Tropico's Wine Prefix
 PREFIX="$HOME/Games/gog/tropico";
+echo "$PREFIX";
 
 # Tropico's root folder
 TROPICO="$PREFIX/drive_c/GOG Games/Tropico";
+echo "$TROPICO";
 
 # Tropico's games folder (saves)
 GAMES="$TROPICO/game";
+echo "$GAMES";
 
 # Tropico's maps folder (scenarios)
 MAPS="$TROPICO/maps";
+echo "$MAPS";
 
 # where is the FixHotel folder and other extras
 FIXHOTEL="$PREFIX/extras/FixHotel";
+echo "$FIXHOTEL";
 
 inotifywait -m -e moved_to -e create "$GAMES" --format "%f" | while read f
 do
