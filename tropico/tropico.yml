@@ -43,5 +43,5 @@ installer:
 - execute:
    file: $GAMEDIR/extras/tropico-auto-scenario-fix.sh
 wine:
-  overrides:
+ overrides:
   ddraw.dll: n
