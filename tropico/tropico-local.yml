@@ -10,7 +10,7 @@ script:
   - tropicoTools: https://github.com/alexanderjgray/myLutrisScripts/releases/download/v0.3-tropico-tools/tropico-tools.tar.gz
   game:
     gogid: 1207663953
-    exe: $GAMEDIR/drive_c/GOG Games/Tropico/tropico.EXE
+    exe: $GAMEDIR/drive_c/GOG Games/Tropico/Tropico.EXE
     prefix: $GAMEDIR
   installer:
   - task:
