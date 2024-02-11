@@ -33,9 +33,9 @@ do
     echo "Processing $f map...";
     echo "Extracting $f...";
     wineconsole eventget.exe "$f";
-    extractedScenario=`echo $f | sed 's/.mp2//i'`;
-    echo "$extractedScenario";
-    cp -r "$FIXHOTEL" "$extractedScenario";
+    extracted_scenario=`echo $f | sed 's/.mp2//i'`;
+    echo "$extracted_scenario";
+    cp -r "$FIXHOTEL" "$extracted_scenario";
     echo "Re-compiling $f..."
     wineconsole eventadd.exe "$f";
     echo "Moving $f to map dir..."
