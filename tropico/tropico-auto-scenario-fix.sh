@@ -41,5 +41,6 @@ do
     echo "Moving $f to map dir..."
     mv "$f" "$MAPS";
 done
+echo "Removing working dir...";
 rm -r "$WORKING";
 echo "Finished."; 
