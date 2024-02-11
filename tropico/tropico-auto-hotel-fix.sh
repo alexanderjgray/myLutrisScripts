@@ -41,5 +41,7 @@ do
 	echo "Recompiling $new_file ...";
 	wineconsole eventadd.exe $new_file;
 	mv $new_file "$MAPS";
+	echo "Cleaning up...";
+	rm -r "$new_map_folder";
     fi
 done
