@@ -15,9 +15,9 @@ do
     echo "Processing $map map...";
     echo "Extracting $map ...";
     wineconsole eventget.exe "$map";
-    extracted_scenario=`echo $map | sed 's/.mp2//i'`;
-    echo "$extracted_scenario";
-    cp -r "FixHotel" "$extracted_scenario";
+    extracted_map=`echo $map | sed 's/.mp2//i'`;
+    echo "$extracted_map";
+    cp -r "FixHotel" "$extracted_map";
     echo "Re-compiling $map ..."
     wineconsole eventadd.exe "$map";
     echo "Moving $map to map dir..."
