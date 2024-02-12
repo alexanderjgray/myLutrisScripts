@@ -10,18 +10,18 @@ mkdir "maps";
 mkdir "working";
 cp -r "maps.bak/"* "working";
 
-for f in "working/"*
+for map in "working/"*
 do
-    echo "Processing $f map...";
-    echo "Extracting $f...";
-    wineconsole eventget.exe "$f";
-    extracted_scenario=`echo $f | sed 's/.mp2//i'`;
+    echo "Processing $map map...";
+    echo "Extracting $map ...";
+    wineconsole eventget.exe "$map";
+    extracted_scenario=`echo $map | sed 's/.mp2//i'`;
     echo "$extracted_scenario";
     cp -r "FixHotel" "$extracted_scenario";
-    echo "Re-compiling $f..."
-    wineconsole eventadd.exe "$f";
-    echo "Moving $f to map dir..."
-    mv "$f" "maps";
+    echo "Re-compiling $map ..."
+    wineconsole eventadd.exe "$map";
+    echo "Moving $map to map dir..."
+    mv "$map" "maps";
 done
 echo "Removing working dir...";
 rm -r "working";
