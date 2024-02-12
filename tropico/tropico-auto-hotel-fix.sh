@@ -8,14 +8,14 @@
 PATH_TO_SCRIPT=$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")");
 cd "$PATH_TO_SCRIPT";
 
-inotifywait -m -e moved_to -e create "$GAMES" --format "%f" | while read f
+inotifywait -m -e moved_to -e create "games" --format "%f" | while read game
 do
-    if [[ $f = s-*.GM2 ]]; then
-	echo "Moving $f to root dir...";
-	mv "games/$f" .;
+    if [[ $game = s-*.GM2 ]]; then
+	echo "Moving $game to root dir...";
+	mv "games/$game" .;
 	echo "Getting new file name and renaming...";
-	new_file=`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
-	mv "$f" `echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
+	new_file=`echo $game | sed 's/\(.*\.\)GM2/\1mp2/'`;
+	mv "$game" `echo $game | sed 's/\(.*\.\)GM2/\1mp2/'`;
 	echo "Extracting $new_file ...";
 	wineconsole eventget.exe $new_file;
 	echo "Getting new map folder name and applying patch...";
