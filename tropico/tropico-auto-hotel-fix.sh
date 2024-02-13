@@ -2,8 +2,6 @@
 
 # Watches tropico's save folder for "s-" prefixed (s for scenario) saves and converts them into a FixHotel patched scenario
 
-# Update paths to your specific setup if required. If installed using the Lutris script no alterations should be nessesary, unless you do something non-standard.
-
 # Fetch full absolute path to the scripts location, save it, and goto the directroy
 PATH_TO_SCRIPT=$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")");
 cd "$PATH_TO_SCRIPT";
