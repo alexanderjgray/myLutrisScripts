@@ -14,16 +14,17 @@ do
 	echo "Moving $game to root dir...";
 	mv "games/$game" .;
 	echo "Getting new file name and renaming...";
-	new_file=`echo $game | sed 's/\(.*\.\)GM2/\1mp2/'`;
-	mv "$game" `echo $game | sed 's/\(.*\.\)GM2/\1mp2/'`;
-	echo "Extracting $new_file ...";
-	wineconsole eventget.exe $new_file;
+	# Convert game file (.GM2) to a map file (.MP2)
+	map=`echo $game | sed 's/\(.*\.\)GM2/\1mp2/'`;
+	mv "$game" "$map";
+	echo "Extracting $map ...";
+	wineconsole eventget.exe $map;
 	echo "Getting new map folder name and applying patch...";
-	new_map_folder=`echo $new_file | sed 's/.mp2//'`;
+	new_map_folder=`echo $map | sed 's/.mp2//'`;
 	cp -r "FixHotel" "$new_map_folder";
-	echo "Recompiling $new_file ...";
-	wineconsole eventadd.exe $new_file;
-	mv $new_file "maps";
+	echo "Recompiling $map ...";
+	wineconsole eventadd.exe $map;
+	mv $map "maps";
 	echo "Cleaning up...";
 	rm -r "$new_map_folder";
     fi
