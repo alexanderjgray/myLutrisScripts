@@ -20,12 +20,12 @@ do
 	echo "Extracting $map ...";
 	wineconsole eventget.exe $map;
 	echo "Getting new map folder name and applying patch...";
-	new_map_folder=`echo $map | sed 's/.mp2//'`;
-	cp -r "FixHotel" "$new_map_folder";
+	extracted_map=`echo $map | sed 's/.mp2//'`;
+	cp -r "FixHotel" "$extracted_map";
 	echo "Recompiling $map ...";
 	wineconsole eventadd.exe $map;
 	mv $map "maps";
 	echo "Cleaning up...";
-	rm -r "$new_map_folder";
+	rm -r "$extracted_map";
     fi
 done
