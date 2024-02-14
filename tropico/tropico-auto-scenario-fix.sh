@@ -12,7 +12,6 @@ cp -r "maps.bak/"* "working";
 
 for map in "working/"*
 do
-    echo "Processing $map map...";
     echo "Extracting $map ...";
     wineconsole eventget.exe "$map";
     extracted_map=`echo $map | sed 's/.mp2//i'`;
