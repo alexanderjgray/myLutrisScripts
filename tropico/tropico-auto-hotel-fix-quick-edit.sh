@@ -28,8 +28,8 @@ do
 	mv "$DIR/$f" "$DIR/"`echo $f | sed 's/\(.*\.\)GM2/\1mp2/'`;
 	echo "Extracting $nf ...";
 	wineconsole eventget.exe $nf;
-	$EDITOR "$DIR/$mdir/name.oth";
-	$EDITOR "$DIR/$mdir/desc.oth";
+	$VISUAL "$DIR/$mdir/name.oth";
+	$VISUAL "$DIR/$mdir/desc.oth";
 	echo "Getting new map folder name and applying patch...";
 	cp -r "$FIXHOTEL" "$DIR/$mdir";
 	echo "Recompiling $nf ...";
