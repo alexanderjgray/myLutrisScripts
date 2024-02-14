@@ -1,5 +1,0 @@
-Make another basic script for patching maps but with editor prompts for the description and name. *This should be done, just haven't pushed it.
-
-Other tools to help with event editing?
-
-Need to make a steam version.
