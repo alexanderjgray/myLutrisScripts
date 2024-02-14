@@ -9,16 +9,16 @@ cd "$PATH_TO_SCRIPT";
 inotifywait -m -e moved_to -e create "games" --format "%f" | while read game
 do
     if [[ $game = s-*.GM2 ]]; then
-	echo "Moving $game to root dir...";
+	echo "Moving $game to root dir ...";
 	mv "games/$game" .;
-	echo "Getting new file name and renaming...";
 	# Convert game file (.GM2) to a map file (.MP2)
 	map=`echo $game | sed 's/\(.*\.\)GM2/\1mp2/'`;
+	echo "Converting $game into $map ...";
 	mv "$game" "$map";
 	echo "Extracting $map ...";
 	wineconsole eventget.exe $map;
-	echo "Getting new map folder name and applying patch...";
 	extracted_map=`echo $map | sed 's/.mp2//'`;
+	echo "Getting our extracted maps name: '$extracted_map' and applying the patch ...";
 	cp -r "FixHotel" "$extracted_map";
 	echo "Recompiling $map ...";
 	wineconsole eventadd.exe $map;
