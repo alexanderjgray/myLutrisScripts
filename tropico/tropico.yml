@@ -13,17 +13,17 @@ installer:
    name: wineexec
    prefix: $GAMEDIR
 - extract:
-   dst: $GAMEDIR/extras/dxwrapper
+   dst: $GAMEDIR/drive_c/GOG Games/Tropico
    file: $dxWrapper
 - copy:
    dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/extras/dxwrapper/dxwrapper.dll
+   src: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper/dxwrapper.dll
 - copy:
    dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/extras/dxwrapper/dxwrapper.ini
+   src: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper/dxwrapper.ini
 - copy:
    dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/extras/dxwrapper/Stub/ddraw.dll
+   src: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper/Stub/ddraw.dll
 - write_config:
    file: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper.ini
    key: Dd7to9
@@ -35,18 +35,12 @@ installer:
    section: Dd7to9
    value: 2
 - extract:
-   dst: $GAMEDIR/extras
+   dst: $GAMEDIR/drive_c/GOG Games/Tropico
    file: $tropicoTools
-- copy:
-   dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/extras/eventadd.exe
-- copy:
-   dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/extras/eventget.exe
-- chmodx: $GAMEDIR/extras/tropico-auto-hotel-fix.sh
-- chmodx: $GAMEDIR/extras/tropico-auto-scenario-fix.sh
+- chmodx: $GAMEDIR/drive_c/GOG Games/Tropico/tropico-auto-hotel-fix.sh
+- chmodx: $GAMEDIR/drive_c/GOG Games/Tropico/tropico-auto-scenario-fix.sh
 - execute:
-   file: $GAMEDIR/extras/tropico-auto-scenario-fix.sh
+   file: $GAMEDIR/drive_c/GOG Games/Tropico/tropico-auto-scenario-fix.sh
 wine:
  overrides:
   ddraw.dll: n
