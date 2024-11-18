@@ -29,6 +29,11 @@ installer:
    key: Dd7to9
    section: Compatibility
    value: 1
+- write_config:
+   file: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper.ini
+   key: DdrawFixByteAlignment
+   section: Dd7to9
+   value: 2
 - extract:
    dst: $GAMEDIR/extras
    file: $tropicoTools
