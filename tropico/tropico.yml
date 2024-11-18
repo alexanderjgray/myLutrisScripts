@@ -17,13 +17,7 @@ installer:
    file: $dxWrapper
 - copy:
    dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper/dxwrapper.dll
-- copy:
-   dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper/dxwrapper.ini
-- copy:
-   dst: $GAMEDIR/drive_c/GOG Games/Tropico
-   src: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper/Stub/ddraw.dll
+   src: $GAMEDIR/drive_c/GOG Games/Tropico/Stub/ddraw.dll
 - write_config:
    file: $GAMEDIR/drive_c/GOG Games/Tropico/dxwrapper.ini
    key: Dd7to9
